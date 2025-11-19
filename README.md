@@ -14,8 +14,8 @@
 
 ## 🚀 Descripción
 Sistema web dual que implementa algoritmos genéticos para dos problemas diferentes:
-** 🪂 Algoritmo Genético:** Paracaidista Óptimo: Optimiza parámetros de aterrizaje para encontrar la combinación perfecta
-** 🍳 Algoritmo Genético:** Recetas Culinarias: Genera recetas balanceadas considerando nutrición, costo y tiempo
+- **🪂 Algoritmo Genético:** Paracaidista Óptimo: Optimiza parámetros de aterrizaje para encontrar la combinación perfecta
+- **🍳 Algoritmo Genético:** Recetas Culinarias: Genera recetas balanceadas considerando nutrición, costo y tiempo
 
 ## 📦 Instalación
 
