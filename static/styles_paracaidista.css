@@ -1,0 +1,249 @@
+/* CONTENEDOR INICIAL */
+.contenedor-inicial {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.panel-izquierdo {
+    background: white;
+    padding: 20px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.panel-derecho {
+    background: white;
+    padding: 20px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+}
+
+/* PARAMETROS IDEALES */
+.parametros-ideales {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.parametro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.parametro-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.parametro-info strong {
+    color: #333;
+    font-size: 16px;
+}
+
+.parametro-info small {
+    color: #666;
+    font-size: 12px;
+}
+
+.parametros-grid-directo {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    grid-template-rows: 1fr 1fr;    /* 2 filas */
+    gap: 12px;
+}
+
+.parametros-grid-directo .parametro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin: 0;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* PANEL RESULTADO */
+.panel-resultado {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.resultado-exito {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #155724;
+}
+
+.resultado-info {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #856404;
+}
+
+.mejor-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+/* TABLA PARACAIDISTAS */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+.tabla-paracaidistas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-paracaidistas th,
+.tabla-paracaidistas td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.tabla-paracaidistas th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.tabla-paracaidistas tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.tabla-paracaidistas tr:hover {
+    background-color: #e9ecef;
+}
+
+/* RESULTADO FINAL */
+.resultado-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.mejor-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.grafica-contenedor {
+    height: 300px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* ANIMACIONES */
+.area-animacion {
+    position: relative;
+    height: 400px;
+    border: 1px solid #ccc;
+    background: linear-gradient(to bottom, #87CEEB 0%, #1E90FF 100%);
+    overflow: hidden;
+}
+
+.info-animacion {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #007bff;
+}
+
+.info-animacion p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.info-animacion strong {
+    color: #495057;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.paracaidista-cayendo {
+    position: absolute;
+    width: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.paracaidista-cayendo-resultado {
+    position: absolute;
+    width: 120px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%); display: none;
+}
+
+#animacion-area {
+    position: relative;
+    height: 410px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #1E90FF 100%);
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#paracaidista-img {
+    position: absolute;
+    width: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.1s linear;
+}
+
+#resultado-img {
+    position: absolute;
+    width: 120px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#animacion-info {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+

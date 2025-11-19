@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_recetas.css') }}">
+    <title>Algoritmo Genético: Recetas Culinarias</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-contenedor">
+            <h1 class="nav-logo">🧠 Algoritmo Genético: Recetas Culinarias </h1>
+            <div class="nav-opciones">
+                <a href="{{ url_for('index') }}" class="nav-opcion {% if request.endpoint == 'index' %}nav-activo{% endif %}">
+                    Algoritmo Genético: Paracaidista
+                </a>
+                <a href="{{ url_for('recetas') }}" class="nav-opcion {% if request.endpoint == 'recetas' %}nav-activo{% endif %}">
+                    Algoritmo Genético: Recetas
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contenedor">
+        <h2>🏗️ Configuración del Algoritmo</h2>
+        <div class="form-grupo">
+            <label for="generaciones">Número de Generaciones:</label>
+            <input type="number" id="generaciones" name="generaciones" value="25" min="1" max="500">
+        </div>
+    
+        <div class="botones-grupo">
+            <button type="button" class="btn btn-primary" onclick="inicializarRecetas()">
+                🎲 Generar Población Inicial
+            </button>
+            <button type="button" class="btn btn-success" onclick="ejecutarRecetas()">
+                🚀 Ejecutar Algoritmo
+            </button>
+        </div>
+
+        <!-- POBLACIÓN INICIAL DE RECETAS -->
+        <div id="panel-recetas" style="display: none;">
+            <h2>👨‍🍳 Población Inicial (Recetas Aleatorias)</h2>
+            <div class="tabla-contenedor">
+                <table class="tabla-recetas">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ingredientes</th>
+                            <th>Pasos</th>
+                            <th>Fitness</th>
+                            <th>Nutrición</th>
+                            <th>Costo</th>
+                            <th>Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-recetas-body">
+                        <!-- Se llenará con JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div id="panel-mejor-receta" style="display: none;">
+            <h2>🏆 Mejor Receta</h2>
+            <div id="mejor-receta-card"></div>
+            <canvas id="grafica-recetas" width="600" height="300"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script_recetas.js') }}"></script>
+</body>
+</html>

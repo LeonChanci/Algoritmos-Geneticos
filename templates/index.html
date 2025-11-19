@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_paracaidista.css') }}">
+    <title>Algoritmo Genético: Paracaidista</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-contenedor">
+            <h1 class="nav-logo">🧠 Algoritmo Genético: Paracaidista 🪂</h1>
+            <div class="nav-opciones">
+                <a href="{{ url_for('index') }}" class="nav-opcion {% if request.endpoint == 'index' %}nav-activo{% endif %}">
+                    Algoritmo Genético: Paracaidista
+                </a>
+                <a href="{{ url_for('recetas') }}" class="nav-opcion {% if request.endpoint == 'recetas' %}nav-activo{% endif %}">
+                    Algoritmo Genético: Recetas
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contenedor-inicial">
+        <div class="panel-izquierdo">
+            <h2>🏗️ Configuración del Algoritmo</h2>
+            
+            <div class="form-grupo">
+                <label for="generaciones">Número de Generaciones:</label>
+                <input type="number" id="generaciones" name="generaciones" value="15" min="1" max="100">
+            </div>
+            <div class="form-grupo">
+                <label for="fitnessAterrizaje">Umbral para buen aterrizaje:</label>
+                <input type="number" id="fitnessAterrizaje" name="fitnessAterrizaje" 
+                    value="0.4" min="0.1" max="2.0" step="0.1">
+            </div>
+
+            <div class="botones-grupo">
+                <button type="button" onclick="inicializarPoblacion()" class="btn btn-primary">
+                    🎲 Crear Población Inicial
+                </button>
+                <button type="button" onclick="ejecutarAlgoritmoConAnimacion()" class="btn btn-success">
+                    🚀 Ejecutar Algoritmo
+                </button>
+            </div>
+        </div>
+        <div class="panel-derecho">
+            <h2>🎯 Parámetros Ideales</h2>
+            <div class="parametros-grid-directo">
+                <div class="parametro">
+                    <span class="parametro-icono">⚖️</span>
+                    <div class="parametro-info">
+                        <strong>Masa:</strong> 80 kg
+                        <small>Peso total</small>
+                    </div>
+                </div>
+                
+                <div class="parametro">
+                    <span class="parametro-icono">⚡</span>
+                    <div class="parametro-info">
+                        <strong>Velocidad:</strong> 5 m/s
+                        <small>Aterrizaje seguro</small>
+                    </div>
+                </div>
+                
+                <div class="parametro">
+                    <span class="parametro-icono">💪</span>
+                    <div class="parametro-info">
+                        <strong>Fuerza:</strong> 1000 N
+                        <small>Apertura paracaídas</small>
+                    </div>
+                </div>
+                
+                <div class="parametro">
+                    <span class="parametro-icono">⏱️</span>
+                    <div class="parametro-info">
+                        <strong>Tiempo:</strong> 160 s
+                        <small>Duración descenso</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-principal">
+        <!-- POBLACIÓN INICIAL -->
+        <div id="panel-poblacion" class="panel-resultado">
+            <h2>👥 Población Inicial (10 Paracaidistas Aleatorios)</h2>
+            <div class="tabla-contenedor">
+                <table class="tabla-paracaidistas">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Masa (kg)</th>
+                            <th>Velocidad (m/s)</th>
+                            <th>Fuerza (N)</th>
+                            <th>Tiempo (s)</th>
+                            <th>Fitness</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-poblacion-body">
+                        <!-- Los datos se llenarán con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- ANIMACIÓN -->
+        <div id="animacion-contenedor" class="panel-resultado">
+            <h2>🎬 Simulación de Aterrizaje</h2>
+            <div class="area-animacion" id="animacion-area">
+                <!-- Aquí se mostrarán las imágenes -->
+                <img class="paracaidista-cayendo" id="paracaidista-img" 
+                    src="{{ url_for('static', filename='images/paracaidista_cayendo.png') }}">
+                <img class="paracaidista-cayendo-resultado" id="resultado-img">
+            </div>
+            <div class="info-animacion" id="animacion-info">
+                <p id="generacion-actual"><strong>Generación: 0</strong></p>
+                <p id="fitness-actual">Fitness: --</p>
+            </div>
+        </div>
+        <!-- RESULTADOS -->
+        <div id="panel-resultados" class="panel-resultado"">
+            <h2>📊 Resultados del Algoritmo</h2>
+            <div id="mejor-paracaidista" class="resultado-card">
+                <!-- Resultado del mejor paracaidista -->
+            </div>
+            <div id="grafica-evolucion" class="grafica-contenedor">
+                <!-- Gráfica de evolución del fitness -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        const IMAGEN_BUEN_ATERRIZAJE = "{{ url_for('static', filename='images/paracaidista_buen_aterrizaje.png') }}";
+        const IMAGEN_MAL_ATERRIZAJE = "{{ url_for('static', filename='images/paracaidista_mal_aterrizaje.png') }}";
+    </script>
+</body>
+</html>
